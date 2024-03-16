@@ -1,0 +1,68 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+<div class="container-custom">
+    <br>
+    <canvas id="myChart" width="30" height="20" style="background-color:#e8f5e9;"></canvas>
+</div>
+<script>
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'horizontalBar',
+        data: {
+            labels: jsonobject.label,
+            datasets: [{
+                label: '% of Vaccination Successful',
+                data: jsonobject.value,
+                backgroundColor: [
+                    'rgba(41, 182, 246, 0.5)',
+                    'rgba(149, 117, 205, 0.5)',
+                    'rgba(239, 154, 154, 0.5)',
+                    'rgba(255, 213, 79, 0.5)',
+                    'rgba(57, 73, 171, 0.5)',
+                    'rgba(165, 214, 167, 0.5)',
+                    'rgba(255, 167, 38, 0.5)',
+                    'rgba(41, 182, 246, 0.5)',
+                    'rgba(149, 117, 205, 0.5)',
+                    'rgba(239, 154, 154, 0.5)',
+                    'rgba(255, 213, 79, 0.5)',
+                    'rgba(57, 73, 171, 0.5)',
+                    'rgba(165, 214, 167, 0.5)',
+                    'rgba(255, 167, 38, 0.5)',
+                ],
+                borderColor: [
+                    'rgba(41, 182, 246, 1)',
+                    'rgba(149, 117, 205, 1)',
+                    'rgba(239, 154, 154, 1)',
+                    'rgba(255, 213, 79, 1)',
+                    'rgba(57, 73, 171, 1)',
+                    'rgba(165, 214, 167, 1)',
+                    'rgba(255, 167, 38, 1)',
+                    'rgba(41, 182, 246, 1)',
+                    'rgba(149, 117, 205, 1)',
+                    'rgba(239, 154, 154, 1)',
+                    'rgba(255, 213, 79, 1)',
+                    'rgba(57, 73, 171, 1)',
+                    'rgba(165, 214, 167, 1)',
+                    'rgba(255, 167, 38, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    stacked:true,
+                    ticks: {
+                        beginAtZero: true,
+                    }
+                }],
+                xAxes: [{
+                    stacked:true,
+                    ticks: {
+                        beginAtZero: true,
+                        suggestedMax: 100
+                    }
+                }]
+            }
+        }
+    });
+</script>
