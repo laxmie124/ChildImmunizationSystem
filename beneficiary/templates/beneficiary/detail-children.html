@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+    Vaccination Status List | Child Immunization System
+{% endblock page_title %}
+
+{% block content %}
+    <center>
+        <h3><strong>Vaccination Status List</strong></h3>
+    </center>
+    <table class="highlight centered responsive-table">
+        <thead>
+            <tr>
+                <th>S. No.</th>
+                <th>Vaccine</th>
+                <th>Scheduled Date</th>
+                <th>Vaccination Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for child_vcc in vaccination_status_list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ child_vcc.vaccine }}</td>
+                    <td>{{ child_vcc.scheduled_date }}</td>
+                    <td>
+                        {% if child_vcc.is_vaccinated %}
+                            <i class="material-icons green-text">check_circle</i>
+                        {% else %}
+                            <i class="material-icons red-text">cancel</i>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}
