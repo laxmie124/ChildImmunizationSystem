@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+Home | Child Immunization System
+{% endblock page_title %}
+
+{% block head %}
+	<style>
+		.card-heading {
+			margin: 0;
+		}
+		.card-content {
+			padding: 0.5em !important;
+		}
+	</style>
+{% endblock head %}
+
+{% block content %}
+	<script>
+		var jsonobject = JSON.parse('{{ jsondata | escapejs }}');
+	</script>
+
+	<br>
+
+	<div class="row">
+		<div class="col l9 m12 s12">
+			<center>
+				<img src="{% static 'images/home-image-1.png' %}" width="80%" height="auto">
+			</center>
+			<br><br><br>
+			<div class="row">
+				<div class="col l6 m12 s12">
+					{% include "charts/_pie_total_charts.html" %}
+				</div>
+				<div class="col l6 m12 s12">
+					{% include "charts/_pie_vcc_charts.html" %}
+				</div>
+			</div>
+		</div>
+		<div class="col l3 m12 s12">
+			<br><br><br>
+			<div class="row">
+				<div class="col s12">
+					<div class="card cyan darken-2">
+						<div class="card-content white-text">
+							<h4 class="card-heading">{{ children_count }}</h4>
+							<h6>Children Registered</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col s12">
+					<div class="card cyan darken-2">
+						<div class="card-content white-text">
+							<h4 class="card-heading">{{ parent_count }}</h4>
+							<h6>Active Parents</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col s12">
+					<div class="card cyan darken-2">
+						<div class="card-content white-text">
+							<h4 class="card-heading">{{ medical_agency_count }}</h4>
+							<h6>Medical Agencies Partnered</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col s12">
+					<div class="card cyan darken-2">
+						<div class="card-content white-text">
+							<h4 class="card-heading">{{ locality_count }}</h4>
+							<h6>Localities Covered</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<br><br><br><br><br><br>
+	<div class="row">
+		<div class="col l8 s12">
+			{% include "charts/_line_charts.html" %}
+		</div>
+		<div class="col l4 s12">
+			<br><br>
+			<img src="{% static 'images/home-image-2.png' %}">
+		</div>
+	</div>
+	<br><br><br><br><br>
+	<div class="row">
+		<div class="col l4 s12">
+			<br><br><br>
+			<img src="{% static 'images/home-image-3.png' %}" width="100%" height="auto">
+		</div>
+		<div class="col l8 s12">
+			{% include "charts/_bar_charts.html" %}
+		</div>
+	</div>
+
+
+{% endblock content %}

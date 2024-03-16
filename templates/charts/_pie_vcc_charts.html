@@ -1,0 +1,47 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+<div class="container-custom">
+    <br>
+    <canvas id="myPieVccChart" width="30" height="20" style="background-color:#e8f5e9;"></canvas>
+</div>
+<script>
+    var ctx = document.getElementById("myPieVccChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: jsonobject.vcc_label,
+            datasets: [{
+                label: '% of Vaccination Successful',
+                data: jsonobject.vcc_value,
+                backgroundColor: [
+                    'rgba(41, 182, 246, 1)',
+                    'rgba(149, 117, 205, 1)',
+                    'rgba(239, 154, 154, 1)',
+                    'rgba(255, 213, 79, 1)',
+                    'rgba(57, 73, 171, 1)',
+                    'rgba(165, 214, 167, 1)',
+                    'rgba(255, 167, 38, 1)',
+                ],
+                borderColor: [
+                    'rgba(41, 182, 246, 1)',
+                    'rgba(149, 117, 205, 1)',
+                    'rgba(239, 154, 154, 1)',
+                    'rgba(255, 213, 79, 1)',
+                    'rgba(57, 73, 171, 1)',
+                    'rgba(165, 214, 167, 1)',
+                    'rgba(255, 167, 38, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            legend: {
+                position: 'right'
+            },
+            title: {
+                display: true,
+                text: '% Vaccine Contribution',
+                position: 'bottom'
+            }
+        }
+    });
+</script>

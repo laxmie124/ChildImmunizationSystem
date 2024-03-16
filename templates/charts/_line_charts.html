@@ -1,0 +1,42 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+<div class="container-custom">
+    <br>
+    <canvas id="myLineChart" width="30" height="20" style="background-color:#e8f5e9;"></canvas>
+</div>
+<script>
+    var ctx = document.getElementById("myLineChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: jsonobject.time_label,
+            datasets: [{
+                label: '# of Vaccination Scheduled',
+                data: jsonobject.time_value,
+                backgroundColor: [
+                    'rgba(0, 188, 212, 0.5)',
+                ],
+                borderColor: [
+                    'rgba(0, 188, 212, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    stacked:true,
+                    ticks: {
+                        beginAtZero: true,
+                    }
+                }],
+                xAxes: [{
+                    stacked:true,
+                    ticks: {
+                        beginAtZero: true,
+                        suggestedMax: 100
+                    }
+                }]
+            }
+        }
+    });
+</script>
